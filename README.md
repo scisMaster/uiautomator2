@@ -47,8 +47,8 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
   - **[获取设备信息](#retrieve-the-device-info)**
   - **[Key Events](#key-events)**
   - **[手势与设备的交互](#gesture-interaction-with-the-device)**
-  - **[Screen-related](#screen-related)**
-  - **[Selector](#selector)**
+  - **[与屏幕相关](#screen-related)**
+  - **[selector](#selector)**
   - **[Watcher](#watcher)**
   - **[Global settings](#global-settings)**
   - **[Input method](#input-method)**
