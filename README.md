@@ -25,28 +25,28 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
 
 **[配置](#installation)**
 
-**[Connect to a device](#connect-to-a-device)**
+**[连接设备](#connect-to-a-device)**
 
-**[Command line](#command-line)**
+**[命令行](#command-line)**
 
-**[Global settings](#global-settings)**
+**[全局设置](#global-settings)**
   - **[Debug HTTP requests](#debug-http-requests)**
-  - **[Implicit wait](#implicit-wait)**
+  - **[默认等待](#implicit-wait)**
 
-**[App management](#app-management)**
-  - **[Install an app](#install-an-app)**
-  - **[Launch an app](#launch-an-app)**
-  - **[Stop an app](#stop-an-app)**
-  - **[Stop all running apps](#stop-all-running-apps)**
-  - **[Push and pull files](#push-and-pull-files)**
-  - **[Auto click permission dialogs](#auto-click-permission-dialogs)**
+**[App管理](#app-management)**
+  - **[app安装](#install-an-app)**
+  - **[app启动](#launch-an-app)**
+  - **[app关闭](#stop-an-app)**
+  - **[关闭所有app](#stop-all-running-apps)**
+  - **[写入和获取文件](#push-and-pull-files)**
+  - **[自动点击权限对话框](#auto-click-permission-dialogs)**
 
 **[UI automation](#basic-api-usages)**
-  - **[Shell commands](#shell-commands)**
-  - **[Session](#session)**
-  - **[Retrieve the device info](#retrieve-the-device-info)**
+  - **[Shell命令](#shell-commands)**
+  - **[Session（启动应用，检测应用崩溃）](#session)**
+  - **[获取设备信息](#retrieve-the-device-info)**
   - **[Key Events](#key-events)**
-  - **[Gesture interaction with the device](#gesture-interaction-with-the-device)**
+  - **[手势与设备的交互](#gesture-interaction-with-the-device)**
   - **[Screen-related](#screen-related)**
   - **[Selector](#selector)**
   - **[Watcher](#watcher)**
