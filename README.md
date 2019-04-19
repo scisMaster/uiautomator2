@@ -23,7 +23,7 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
   * `大神我是小白，这个怎么用啊` -> `大神我是小白看了文档试用了一下，这个是我在TesterHome分享的踩坑贴，有些可以并到README`
   * `大神这个是不是一直免费啊` -> `大神我能做什么` https://github.com/openatx/uiautomator2/projects/1
 
-**[Installation](#installation)**
+**[配置](#installation)**
 
 **[Connect to a device](#connect-to-a-device)**
 
