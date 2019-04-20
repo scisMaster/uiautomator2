@@ -151,7 +151,7 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
 下面有两种连接手机的方式
 
 1. 使用 WiFi (推荐)
-例如 手机 IP is `10.0.0.1` 并且你的手机和电脑需要在相同的网络下
+ 例如 手机 IP is `10.0.0.1` 并且你的手机和电脑需要在相同的网络下
 
 ```python
 import uiautomator2 as u2
@@ -171,7 +171,7 @@ print(d.info)
 ```
 
 `u2.connect()` 不带参数时, `uiautomator2` 会从环境变量中获取手机IP `ANDROID_DEVICE_IP`.
-If this environment variable is empty, uiautomator will fall back to `connect_usb` and you need to make sure that there is only one device connected to the computer.
+如果这个环境变量为空, uiautomator 会返回到 `connect_usb` 此时你需要确保仅有一台手机连接电脑.
 
 # Command line
 其中的`$device_ip`代表设备的ip地址
@@ -212,7 +212,7 @@ If this environment variable is empty, uiautomator will fall back to `connect_us
     
 # API Documents
 ## Global settings
-This part contains some global settings
+此部分包含一些全局设置
 
 ### Debug HTTP requests
 Trace HTTP requests and response to find out how it works.
@@ -228,7 +228,7 @@ Trace HTTP requests and response to find out how it works.
 ```
 
 ### Implicit wait
-Set default element wait time, unit seconds
+设置默认等待时间，单位秒
 
 ```python
 d.implicitly_wait(10.0)
@@ -240,7 +240,7 @@ print("wait timeout", d.implicitly_wait()) # get default implicit wait
 This function will have influence on `click`, `long_click`, `drag_to`, `get_text`, `set_text`, `clear_text`, etc.
 
 ## App management
-This part showcases how to perform app management
+这部分介绍如何操作App，例如安装、启动、停止运行等
 
 ### Install an app
 We only support installing an APK from a URL
@@ -256,9 +256,9 @@ d.app_start("com.example.hello_world") # start with package name
 
 ### Stop an app
 ```python
-# equivalent to `am force-stop`, thus you could lose data
+# 相当于 `am force-stop`, 因此你可能会丢失数据
 d.app_stop("com.example.hello_world") 
-# equivalent to `pm clear`
+# 相当于 `pm clear`
 d.app_clear('com.example.hello_world')
 ```
 
@@ -266,7 +266,7 @@ d.app_clear('com.example.hello_world')
 ```python
 # stop all
 d.app_stop_all()
-# stop all app except for com.examples.demo
+# 停止所有App，除了 com.examples.demo
 d.app_stop_all(excludes=['com.examples.demo'])
 ```
 
@@ -321,8 +321,8 @@ d.healthcheck()
 Import in version 0.1.1
 
 ```python
-d.disable_popups() # automatic skip popups
-d.disable_popups(False) # disable automatic skip popups
+d.disable_popups() # 自动跳过弹出窗口
+d.disable_popups(False) # 禁止自动跳过弹出窗口
 ```
 
 ![popup](docs/img/popup.png)
@@ -337,7 +337,7 @@ If this method is not working on your device, You can make a pull request or cre
 Now you know the button text and current package name. Make a pull request by update function `disable_popups` or create an [issue](https://github.com/openatx/uiautomator2/issues) if you are not familar with git and python.
 
 ## Basic API Usages
-This part showcases how to perform common device operations:
+这部分介绍对手机的基本操作：
 
 ### Shell commands
 * Run a short-lived shell command with a timeout protection. (Default timeout 60s)
