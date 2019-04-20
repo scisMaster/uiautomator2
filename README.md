@@ -340,38 +340,38 @@ Now you know the button text and current package name. Make a pull request by up
 这部分介绍对手机的基本操作：
 
 ### Shell commands
-* Run a short-lived shell command with a timeout protection. (Default timeout 60s)
+* 执行简短的shell command 并且带有超时保护。 (Default timeout 60s)
 
     Note: timeout support require `atx-agent >=0.3.3`
 
-    `adb_shell` function is deprecated. Use `shell` instead.
+    `adb_shell` 函数已经停用。使用 `shell` 替代.
 
-    Simple usage
+    示例
 
     ```python
     output, exit_code = d.shell("pwd", timeout=60) # timeout 60s (Default)
     # output: "/\n", exit_code: 0
     # Similar to command: adb shell pwd
 
-    # Since `shell` function return type is `namedtuple("ShellResponse", ("output", "exit_code"))`
-    # so we can do some tricks
+    # 因为 `shell` 函数返回的类型是 `namedtuple("ShellResponse", ("output", "exit_code"))`
+    # 所以下面我们使用一些技巧
     output = d.shell("pwd").output
     exit_code = d.shell("pwd").exit_code
     ```
 
-    The first argument can be list. for example
+    第一个参数可以是 list. for example
 
     ```python
     output, exit_code = d.shell(["ls", "-l"])
     # output: "/....", exit_code: 0
     ```
 
-   This returns a string for stdout merged with stderr.
-   If the command is a blocking command, `shell` will also block until the command is completed or the timeout kicks in. No partial output will be received during the execution of the command. This API is not suitable for long-running commands. The shell command given runs in a similar environment of `adb shell`, which has a Linux permission level of `adb` or `shell` (higher than an app permission).
+   这个例子将返回stdout和stderr的字符串.
+   如果这条命令是阻塞命令， `shell` 也会阻塞直到命令完成或者超时生效。 命令执行过程中不会收到输出结果。 此API不适合长时间执行的命令。 给定的shell命令运行在类似于 `adb shell` 的环境中, 该环境有 `adb` 或者 `shell` 级别的Linux权限(高于app的权限)。
 
-* Run a long-running shell command
+* 执行长时间运行的shell命令
 
-    add stream=True will return `requests.models.Response` object. More info see [requests stream](http://docs.python-requests.org/zh_CN/latest/user/quickstart.html#id5)
+    添加 stream=True 会返回 `requests.models.Response` 对象。 更多信息见 [requests stream](http://docs.python-requests.org/zh_CN/latest/user/quickstart.html#id5)
 
     ```python
     r = d.shell("logcat", stream=True)
@@ -389,16 +389,16 @@ Now you know the button text and current package name. Make a pull request by up
     Command will be terminated when `r.close()` called.
     
 ### Session
-Session represent an app lifecycle. Can be used to start app, detect app crash.
+Session 表示一个App的生命周期。 可以用来启动App，检测App的崩溃。
 
-* Launch and close app
+* 启动和关闭 App
 
     ```python
     sess = d.session("com.netease.cloudmusic") # start 网易云音乐
     sess.close() # 停止网易云音乐
     ```
 
-* Use python `with` to launch and close app
+* 使用 python `with` 来启动和关闭App
 
     ```python
     with d.session("com.netease.cloudmusic") as sess:
@@ -431,13 +431,13 @@ Session represent an app lifecycle. Can be used to start app, detect app crash.
 
 ### Retrieve the device info
 
-Get basic information
+获取手机基本信息
 
 ```python
 d.info
 ```
 
-Below is a possible output:
+下面是可能输出的信息：
 
 ```
 { 
@@ -453,7 +453,7 @@ Below is a possible output:
 }
 ```
 
-Get window size
+获取手机分辨率
 
 ```python
 print(d.window_size())
