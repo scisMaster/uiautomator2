@@ -80,7 +80,7 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
 
 
 # Installation
-1. Install uiautomator2
+1. 安装 uiautomator2
 
     ```bash
     # Since uiautomator2 is still under development, you have to add --pre to install the development version
@@ -91,7 +91,7 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
     pip install -e uiautomator2
     ```
 
-    Optionally, `pillow` is needed to process screenshot data.
+    可选项，pillow被用作处理截图
     
     ```bash
     pip install pillow
@@ -148,10 +148,10 @@ uiautomator2 是一个Android UI自动化框架，支持Python编写测试脚本
     * **[视频教程 请戳这里](https://github.com/openatx/uiautomator2/wiki/Appetizer%E6%89%80%E8%A7%81%E5%8D%B3%E6%89%80%E5%BE%97u2%E8%84%9A%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8)**  [其他文档在此](http://doc.appetizer.io)
     
 # Connect to a device
-There are two ways to connect to the device. 
+下面有两种连接手机的方式
 
-1. Through WiFi (recommended)
-Suppose device IP is `10.0.0.1` and your PC is in the same network.
+1. 使用 WiFi (推荐)
+例如 手机 IP is `10.0.0.1` 并且你的手机和电脑需要在相同的网络下
 
 ```python
 import uiautomator2 as u2
@@ -160,8 +160,8 @@ d = u2.connect('10.0.0.1') # alias for u2.connect_wifi('10.0.0.1')
 print(d.info)
 ```
 
-2. Through USB
-Suppose the device serial is `123456f` (seen from `adb devices`)
+2. 使用 USB
+例如手机序列号是 `123456f` (使用命令 `adb devices`)
 
 ```python
 import uiautomator2 as u2
@@ -170,7 +170,7 @@ d = u2.connect('123456f') # alias for u2.connect_usb('123456f')
 print(d.info)
 ```
 
-Calling `u2.connect()` with no argument, `uiautomator2` will obtain device IP from the environment variable `ANDROID_DEVICE_IP`.
+`u2.connect()` 不带参数时, `uiautomator2` 会从环境变量中获取手机IP `ANDROID_DEVICE_IP`.
 If this environment variable is empty, uiautomator will fall back to `connect_usb` and you need to make sure that there is only one device connected to the computer.
 
 # Command line
