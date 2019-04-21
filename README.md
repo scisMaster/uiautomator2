@@ -461,7 +461,7 @@ print(d.window_size())
 # device horizontal output example: (1920, 1080)
 ```
 
-Get current app info. For some android devices, the output could be empty (see *Output example 3*)
+获取当前App信息。 对于一些安卓设备，输出的信息可能为空(see *Output example 3*)
 
 ```python
 print(d.current_app())
@@ -529,14 +529,14 @@ Below is a possible output:
 
 ### Key Events
 
-* Turn on/off screen
+* 打开/关闭屏幕
 
     ```python
     d.screen_on() # turn on the screen
     d.screen_off() # turn off the screen
     ```
 
-* Get current screen status
+* 获取屏幕当前状态
 
     ```python
     d.info.get('screenOn') # require Android >= 4.4
@@ -566,7 +566,7 @@ Below is a possible output:
     - recent (recent apps)
     - volume_up
     - volume_down
-    - volume_mute
+    - volume_mute（静音）
     - camera
     - power
 
@@ -642,9 +642,9 @@ Note: click, swipe, drag operations support percentage position values. Example:
 `d.long_click(0.5, 0.5)` means long click center of screen
 
 ### Screen-related
-* Retrieve/Set device orientation
+* 获取/设置手机屏幕的方向
 
-    The possible orientations:
+    方向的参数值:
 
     -   `natural` or `n`
     -   `left` or `l`
@@ -652,11 +652,11 @@ Note: click, swipe, drag operations support percentage position values. Example:
     -   `upsidedown` or `u` (can not be set)
 
     ```python
-    # retrieve orientation. the output could be "natural" or "left" or "right" or "upsidedown"
+    # 获取屏幕方向. 返回值可能是 "natural" or "left" or "right" or "upsidedown"
     orientation = d.orientation
 
     # WARNING: not pass testing in my TT-M1
-    # set orientation and freeze rotation.
+    # 设置屏幕方向和方向锁定.
     # notes: setting "upsidedown" requires Android>=4.3.
     d.set_orientation('l') # or "left"
     d.set_orientation("l") # or "left"
@@ -664,16 +664,16 @@ Note: click, swipe, drag operations support percentage position values. Example:
     d.set_orientation("n") # or "natural"
     ```
 
-* Freeze/Un-freeze rotation
+* 方向锁定/取消方向锁定
 
     ```python
-    # freeze rotation
+    # 方向锁定
     d.freeze_rotation()
-    # un-freeze rotation
+    # 取消方向锁定
     d.freeze_rotation(False)
     ```
 
-* Take screenshot
+* 截屏
 
     ```python
     # take screenshot and save to a file on the computer, require Android>=4.2.
@@ -700,7 +700,7 @@ Note: click, swipe, drag operations support percentage position values. Example:
     xml = d.dump_hierarchy()
     ```
 
-* Open notification or quick settings
+* 打开通知栏或者快速设置
 
     ```python
     d.open_notification()
@@ -716,7 +716,7 @@ Selector is a handy mechanism to identify a specific UI object in the current wi
 d(text='Clock', className='android.widget.TextView')
 ```
 
-Selector supports below parameters. Refer to [UiSelector Java doc](http://developer.android.com/tools/help/uiautomator/UiSelector.html) for detailed information.
+Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.android.com/tools/help/uiautomator/UiSelector.html) for detailed information.
 
 *  `text`, `textContains`, `textMatches`, `textStartsWith`
 *  `className`, `classNameMatches`
@@ -729,14 +729,14 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
 
 #### Children and siblings
 
-* children
+* 孩子
 
   ```python
   # get the children or grandchildren
   d(className="android.widget.ListView").child(text="Bluetooth")
   ```
 
-* siblings
+* 兄弟
 
   ```python
   # get siblings
@@ -751,7 +751,7 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
   d(className="android.widget.ListView", resourceId="android:id/list") \
    .child_by_text("Bluetooth", className="android.widget.LinearLayout")
 
-  # get children by allowing scroll search
+  # get children by allowing scroll search（通过滚动屏幕来查找）
   d(className="android.widget.ListView", resourceId="android:id/list") \
    .child_by_text(
       "Bluetooth",
@@ -797,7 +797,7 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
     .click()
   ```
 
-* relative positioning
+* 相对定位
 
   Also we can use the relative positioning methods to get the view: `left`, `right`, `top`, `bottom`.
 
@@ -813,10 +813,9 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
   d(text="Wi‑Fi").right(className="android.widget.Switch").click()
   ```
 
-* Multiple instances
+* 多个实例
 
-  Sometimes the screen may contain multiple views with the same properties, e.g. text, then you will
-  have to use the "instance" property in the selector to pick one of qualifying instances, like below:
+  有时屏幕可能包含多个具有相同属性的视图， e.g. text, 所以你必须使用 "instance" 属性来选择一个适合的实例，例如下列：
 
   ```python
   d(text="Add new", instance=0)  # which means the first instance with text "Add new"
@@ -841,11 +840,10 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
       view.info  # ...
   ```
 
-  **Notes**: when using selectors in a code block that walk through the result list, you must ensure that the UI elements on the screen
-  keep unchanged. Otherwise, when Element-Not-Found error could occur when iterating through the list.
+  **Notes**: 当代码中用到结果 list 中的 selectors 时， 你必须确保屏幕中的 UI 元素保持不变。 否则，当遍历 list 时 Element-Not-Found error 可能发生。
 
-#### Get the selected ui object status and its information
-* Check if the specific UI object exists
+#### 获取选中 ui 对象的状态和信息
+* 检查指定的 UI 对象是否存在
 
     ```python
     d(text="Settings").exists # True if exists, else False
@@ -855,7 +853,7 @@ Selector supports below parameters. Refer to [UiSelector Java doc](http://develo
     d(text="Settings").exists(timeout=3) # wait Settings appear in 3s, same as .wait(3)
     ```
 
-* Retrieve the info of the specific UI object
+* 获取指定 UI 对象的信息
 
     ```python
     d(text="Settings").info
