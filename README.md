@@ -895,15 +895,15 @@ Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.and
     d(text="Settings").clear_text()  # clear the text
     ```
 
-* Get Widget center point
+* 获取控件的中心坐标
 
     ```python
     x, y = d(text="Settings").center()
     # x, y = d(text="Settings").center(offset=(0, 0)) # left-top x, y
     ```
     
-#### Perform the click action on the selected UI object
-* Perform click on the specific   object
+#### 对选定的 UI 对象执行操作
+* 单击
 
     ```python
     # click on the center of the specific ui object
@@ -926,15 +926,15 @@ Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.and
     is_gone = d(text="Skip").click_gone(maxretry=10, interval=1.0) # maxretry default 10, interval default 1.0
     ```
 
-* Perform long click on the specific UI object
+* 长按
 
     ```python
     # long click on the center of the specific UI object
     d(text="Settings").long_click()
     ```
 
-#### Gesture actions for the specific UI object
-* Drag the UI object towards another point or another UI object 
+#### 对选定的 UI 对象进行手势操作
+* 拖拽 UI 对象移动到一点或另一个 UI 对象 
 
     ```python
     # notes : drag can not be used for Android<4.3.
