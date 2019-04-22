@@ -944,7 +944,7 @@ Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.and
     d(text="Settings").drag_to(text="Clock", duration=0.25)
     ```
 
-* Swipe from the center of the UI object to its edge
+* 从 UI 对象的中心滑到其边缘
 
     Swipe supports 4 directions:
 
@@ -980,7 +980,7 @@ Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.and
   d(text="Settings").pinch_out()
   ```
 
-* Wait until the specific UI appears or disappears
+* 等待指定的 UI 出现或者消失
     
     ```python
     # wait until the ui object appears
@@ -992,6 +992,7 @@ Selector 支持下列参数. Refer to [UiSelector Java doc](http://developer.and
     The default timeout is 20s. see **global settings** for more details
 
 * Perform fling on the specific ui object(scrollable)
+  抛(fling)：手指触动屏幕后，稍微滑动后立即松开
 
   Possible properties:
   - `horiz` or `vert`
