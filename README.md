@@ -1142,10 +1142,11 @@ You can register [watchers](http://developer.android.com/tools/help/uiautomator/
 
 ### Global settings
 ```python
-# set delay 1.5s after each UI click and click
-d.click_post_delay = 1.5 # default no delay
+# 设置延时，每次点击 UI 之后有 1.5s 延时
+d.click_post_delay = 1.5 # 默认没有延时
 
 # set default element wait timeout (seconds)
+# 设置元素的等待超时
 d.wait_timeout = 30.0 # default 20.0
 ```
 
@@ -1193,7 +1194,7 @@ _什么时候该使用这个函数呢？_
 `send_action`先broadcast命令发送给输入法操作`IME_ACTION_CODE`，由输入法完成后续跟EditText的通信。（原理我不太清楚，有了解的，提issue告诉我)
 
 ### Toast
-Show Toast
+Show Toast( Toast 是一种简易的消息提示框，位于手机中央的下方)
 
 ```python
 d.toast.show("Hello world")
